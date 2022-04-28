@@ -1,27 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <v-app>
+    <div class="main">
+      <div class="board">
+        <div class="board__header">
+          <h3>Easy todo list like others!</h3>
+          <p v-if="loading">Loading...</p>
+          <p v-else>{{ completedCount }} of {{ totalCount }} completed.</p>
+        </div>
+        <div class="board__body" v-if="!loading">
+          <NewItem />
+          <TodoList />
+        </div>
+        <div class="board__footer"></div>
+      </div>
+    </div>
+  </v-app>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { computed, defineComponent, onMounted } from "vue";
 
-@Options({
-  components: {
-    HelloWorld,
+import NewItem from "./components/NewItem.vue";
+import TodoList from "./components/TodoList.vue";
+import { useStore } from "./store";
+import { ActionTypes } from "./store/actions";
+
+export default defineComponent({
+  components: { NewItem, TodoList },
+  setup() {
+    const store = useStore();
+
+    const loading = computed(() => store.state.loading);
+    onMounted(() => store.dispatch(ActionTypes.GetTodoItems));
+
+    const completedCount = computed(() => store.getters.completedCount);
+    const totalCount = computed(() => store.getters.totalCount);
+
+    return { loading, completedCount, totalCount };
   },
-})
-export default class App extends Vue {}
+});
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "./assets/scss/main.scss";
 </style>

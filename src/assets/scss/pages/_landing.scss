@@ -1,0 +1,70 @@
+.main {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  height: 100%;
+  background-color: $white1;
+  overflow-y: hidden;
+  @include respond(phone-min) {
+    padding: 10px;
+  }
+  @include respond(tablet) {
+    padding: 25px;
+    border-radius: 20px;
+  }
+  .board {
+    width: 100%;
+    @include respond(desktop-min) {
+      width: 700px;
+    }
+    &__header {
+      text-align: center;
+      h3 {
+        padding: 0 0 10px;
+      }
+    }
+    &__body {
+      padding: 10px;
+      .addform {
+        padding: 20px 10px 0;
+        border-radius: 5px;
+        background-color: $white;
+        box-shadow: $boxShadow2;
+      }
+      .todoitem {
+        display: grid;
+        grid-template-columns: 1fr 96px;
+        grid-template-rows: min-content;
+        grid-template-areas: "left right";
+        grid-gap: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: $boxShadow2;
+        p {
+          word-break: break-all;
+        }
+      }
+      .border {
+        &--green {
+          border: 5px solid $green;
+        }
+        &--white {
+          border: 5px solid transparent;
+        }
+      }
+      .placeholder {
+        color: rgba($gray2, 0.8);
+        text-align: center;
+        padding: 10px;
+      }
+    }
+    &__footer {
+    }
+  }
+}

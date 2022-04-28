@@ -1,0 +1,102 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-max {
+    @media only screen and (max-width: 400px) {
+      @content;
+    } //400px
+  }
+  @if $breakpoint == phone-min {
+    @media only screen and (min-width: 330px) {
+      @content;
+    } //320px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 767px) {
+      @content;
+    } //767px
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    } //768px
+  }
+  @if $breakpoint == tablet-max {
+    @media only screen and (max-width: 768px) {
+      @content;
+    } //768px
+  }
+  @if $breakpoint == tab-por-min {
+    @media only screen and (max-width: 860px) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 900px) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-port-max {
+    @media only screen and (max-width: 950px) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land-min {
+    @media only screen and (max-width: 991px) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == tab-land-max {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == desktop-land {
+    @media only screen and (min-width: 1220px) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == desktop-min {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1366px) {
+      @content;
+    } //1800px
+  }
+  @if $breakpoint == desktop-max {
+    @media only screen and (max-width: 1440px) {
+      @content;
+    } //1800px
+  }
+  @if $breakpoint == desktop-lg {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    } //1800px
+  }
+  @if $breakpoint == desktop-xl {
+    @media only screen and (min-width: 1600px) {
+      @content;
+    } //1800px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 1800px) {
+      @content;
+    } //1800px
+  }
+  @if $breakpoint == xl-desktop {
+    @media only screen and (min-width: 2000px) {
+      @content;
+    } //1800px
+  }
+  @if $breakpoint == only-tablet {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      @content;
+    } //768px-1024px
+  }
+}
