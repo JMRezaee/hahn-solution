@@ -1,5 +1,16 @@
 # hahn-solution
 
+Todo app based on Vuejs freamwork.
+
+## Features
+
+- Insert tasks by title
+- See tasks list
+- Make tasks done or undone
+- Delete tasks
+- Using Vuex
+- Typescript support
+
 ## Project setup
 
 ```
